@@ -21,7 +21,7 @@ const Grid = props => {
               style={{
                 width,
                 marginRight: marginRight(id),
-                marginBottom: space
+                marginBottom: props.space
               }}
             >{item}</View>
           )
