@@ -14,18 +14,19 @@ const Grid = props => {
     justifyContent: 'flex-start'
   }}>
     {
-      props.children.length ?
+      props.children?.length ?
         props.children?.map((item, id) => {
           return (
             <View key={id}
               style={{
                 width,
-                marginRight: marginRight(id)
+                marginRight: marginRight(id),
+                marginBottom: space
               }}
             >{item}</View>
           )
         }) :
-        <View style={{ width }}>
+        <View style={{ width, marginBottom: space }}>
           {props.children}
         </View>
     }
