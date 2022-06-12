@@ -11,7 +11,7 @@ npm install rn-grid-layout
 ## Usage
 
 ```js
-import Grid from 'react-native-grid';
+import Grid from 'rn-grid-layout';
 
 // ...
 
