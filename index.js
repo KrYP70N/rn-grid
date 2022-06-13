@@ -7,15 +7,16 @@ const Grid = props => {
   const space = ((props.space || 0) / win_width) * 100;
   const width = `${((100 / col) - space) + (space / col)}%`;
   const marginRight = id => (id + 1) % col === 0 ? 0 : `${space}%`;
+
   return <View style={{
-    width: "100%",
+    width: '100%',
     flexWrap: 'wrap',
     flexDirection: 'row',
     justifyContent: 'flex-start'
   }}>
     {
       props.children?.length ?
-        props.children?.map((item, id) => {
+        props.children?.flat().map((item, id) => {
           return (
             <View key={id}
               style={{

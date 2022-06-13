@@ -1,12 +1,12 @@
 {
   "name": "rn-grid-layout",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["react-native-grid", "rn-grid", "grid", "grid-layout", "rn-grid-layout", "react-native-layout", "layout"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
