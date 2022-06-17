@@ -20,7 +20,6 @@ import Grid from 'rn-grid-layout';
 </Grid>;
 ```
 
-
 ## License
 
 ISC

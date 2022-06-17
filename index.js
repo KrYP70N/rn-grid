@@ -16,17 +16,16 @@ const Grid = props => {
   }}>
     {
       props.children?.length ?
-        props.children?.flat().map((item, id) => {
-          return (
-            <View key={id}
-              style={{
-                width,
-                marginRight: marginRight(id),
-                marginBottom: props.space
-              }}
-            >{item}</View>
-          )
-        }) :
+        props.children?.flat().map((item, id) =>
+          item &&
+          <View key={id}
+            style={{
+              width,
+              marginRight: marginRight(id),
+              marginBottom: props.space
+            }}
+          >{item}</View>
+        ) :
         <View style={{ width, marginBottom: space }}>
           {props.children}
         </View>
