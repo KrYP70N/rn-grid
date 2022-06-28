@@ -1,5 +1,5 @@
 import React from "react";
-import { Dimensions, View, Text } from 'react-native';
+import { Dimensions, View } from 'react-native';
 
 const lastCol = (col, id) => id + 1 >= col && (id + 1) % col === 0
 
@@ -35,7 +35,17 @@ const Grid = props => {
             {item}
           </View>
         ) :
-        <View>
+        <View style={{
+          width: (
+            props.template ?
+              width(
+                (100 / props.template.reduce((partialSum, a) => partialSum + a, 0))
+                * props.template[id % col]
+              ) :
+              width(100 / col)) + '%',
+          marginBottom: space + '%',
+          marginRight: lastCol(col, id) ? 0 : space + '%'
+        }}>
           {props.children}
         </View>
     }
