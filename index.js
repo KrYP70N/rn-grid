@@ -1,12 +1,13 @@
 import React from "react";
-import { Dimensions, View } from 'react-native';
+import { Dimensions, View, Text } from 'react-native';
+
+const lastCol = (col, id) => id + 1 >= col && (id + 1) % col === 0
 
 const Grid = props => {
-  const col = props.col || 1
-  const win_width = Dimensions.get('window').width;
-  const space = ((props.space || 0) / win_width) * 100;
-  const width = `${((100 / col) - space) + (space / col)}%`;
-  const marginRight = id => (id + 1) % col === 0 ? 0 : `${space}%`;
+  const deviceWidth = Dimensions.get('window').width
+  const col = props.col || props.template.length || 1
+  const space = (((props.space || 0) / deviceWidth) * 100)
+  const width = w => w - ((space * (col - 1)) / col)
 
   return <View style={{
     width: '100%',
@@ -20,13 +21,21 @@ const Grid = props => {
           item &&
           <View key={id}
             style={{
-              width,
-              marginRight: marginRight(id),
-              marginBottom: props.space
+              width: (
+                props.template ?
+                  width(
+                    (100 / props.template.reduce((partialSum, a) => partialSum + a, 0))
+                    * props.template[id % col]
+                  ) :
+                  width(100 / col)) + '%',
+              marginBottom: space + '%',
+              marginRight: lastCol(col, id) ? 0 : space + '%'
             }}
-          >{item}</View>
+          >
+            {item}
+          </View>
         ) :
-        <View style={{ width, marginBottom: space }}>
+        <View>
           {props.children}
         </View>
     }
