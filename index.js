@@ -40,7 +40,7 @@ const Grid = props => {
             props.template ?
               width(
                 (100 / props.template.reduce((partialSum, a) => partialSum + a, 0))
-                * props.template[id % col]
+                * props.template[0 % col]
               ) :
               width(100 / col)) + '%',
           marginBottom: space + '%',
