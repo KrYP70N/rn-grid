@@ -13,7 +13,9 @@ const Grid = props => {
     width: '100%',
     flexWrap: 'wrap',
     flexDirection: 'row',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems: props.align || 'flex-start',
+    ...props.style
   }}>
     {
       props.children?.length ?
