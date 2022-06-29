@@ -5,7 +5,7 @@ const lastCol = (col, id) => id + 1 >= col && (id + 1) % col === 0
 
 const Grid = props => {
   const deviceWidth = Dimensions.get('window').width
-  const col = props.col || props.template.length || 1
+  const col = props.col || props.template?.length || 1
   const space = (((props.space || 0) / deviceWidth) * 100)
   const width = w => w - ((space * (col - 1)) / col)
 
