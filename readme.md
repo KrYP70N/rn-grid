@@ -23,10 +23,10 @@ import Grid from 'rn-grid-layout';
 ```js
 import Grid from 'rn-grid-layout';
 
-<Grid template={[20, 80]} space={12}>
+<Grid template={[1, 2]} space={12}>
   //- your components
-  <View></View> //- 20% width
-  <View></View> //- 80% width
+  <View></View> //- first component
+  <View></View> //- double width of first component
 </Grid>;
 ```
 
